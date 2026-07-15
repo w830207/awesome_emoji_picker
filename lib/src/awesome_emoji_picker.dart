@@ -37,6 +37,7 @@ class AwesomeEmojiPicker extends StatefulWidget {
     this.skinTone = EmojiSkinTone.normal,
     this.skinToneLabel = 'Skin Tone',
     this.autofocus = false,
+    this.backgroundColor,
   });
 
   /// Callback that is called when the user selects an emoji.
@@ -87,6 +88,9 @@ class AwesomeEmojiPicker extends StatefulWidget {
 
   /// Whether the search input field should be autofocused when the emoji picker is opened.
   final bool autofocus;
+
+  /// The color of picker background.
+  final Color? backgroundColor;
 
   @override
   State<AwesomeEmojiPicker> createState() => _AwesomeEmojiPickerState();
@@ -185,7 +189,7 @@ class _AwesomeEmojiPickerState extends State<AwesomeEmojiPicker> {
     });
 
     return ColoredBox(
-      color: Theme.of(context).scaffoldBackgroundColor,
+      color: widget.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
